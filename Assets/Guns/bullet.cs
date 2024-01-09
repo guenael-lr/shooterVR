@@ -14,10 +14,6 @@ public class bullet : MonoBehaviour
     {
         //set velocity to y axis
         velocity = 10.0f;
-
-        //position go forward for 1.f
-                transform.position += transform.forward * 0.5f;
-
     }
 
     // Update is called once per frame
