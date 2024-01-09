@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4194490078952515129}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.04, z: 0.0044}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0.005}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 7631693037772467544}
   m_Layer: 0
   m_Name: Socket Interactor Grenade
-  m_TagString: Untagged
+  m_TagString: SocketGun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -287,5 +287,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 7296920980550058556, guid: f7cc943ff50d5e245a6352a372ab9d2d, type: 3}
   RefBulletPos: {fileID: 4194490078952515129}
-  Grenade: {fileID: 0}
-  SocketGrenade: {fileID: 0}
+  Grenade: {fileID: 6177757417669284267, guid: 90e863c36e966c74ab7497f46a56539c, type: 3}
+  SocketGrenade: {fileID: 6228990765938100805}

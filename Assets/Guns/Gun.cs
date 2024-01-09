@@ -62,14 +62,34 @@ public class Gun : MonoBehaviour
         }
 
         targetDevice.TryGetFeatureValue(CommonUsages.primaryButton, out bool socketButtonValue);
+        
         if (socketButtonValue)
         {
+            
             if(grenadeOfGun == null) {
-                //instantiate a grenade in the socket with its transformation
-                Grenade.transform.position = SocketGrenade.transform.position;
-                Grenade.transform.rotation = SocketGrenade.transform.rotation;
-                grenadeOfGun = Instantiate(Grenade);
+                //get all elements in the collider of socketGrendae
+                Collider[] touchedItems = Physics.OverlapSphere(SocketGrenade.transform.position, SocketGrenade.GetComponent<SphereCollider>().bounds.size.x / 2);
+                //if it is not empty
+                grenadeInSocket = false;
+                 //check if grenade is in the collider
+                foreach (Collider item in touchedItems)
+                {
+                    if (item.gameObject.tag == "Grenade")
+                    {
+                        grenadeInSocket = true;
+                    }
+                }
+
+                if (!grenadeInSocket)
+                {
+                   //instantiate a grenade in the socket with its transformation
+                    Grenade.transform.position = SocketGrenade.transform.position;
+                    Grenade.transform.rotation = SocketGrenade.transform.rotation;
+                    grenadeOfGun = Instantiate(Grenade);
+                }
+
             }
+
         }
         else
         {
@@ -78,11 +98,13 @@ public class Gun : MonoBehaviour
                 //check if grenadeofgun is in sphere collider of socketgrenade
                 if (SocketGrenade.GetComponent<SphereCollider>().bounds.Contains(grenadeOfGun.transform.position))
                 {
-                    DestroyImmediate(grenadeOfGun, true); ;
+                    DestroyImmediate(grenadeOfGun, true);
+
                 }
                 else
                 {
                     grenadeOfGun = null;
+                    
                 }
             }
         }
