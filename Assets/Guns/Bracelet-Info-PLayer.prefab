@@ -397,9 +397,8 @@ GameObject:
   - component: {fileID: 956060631698036172}
   - component: {fileID: 8350920253207201254}
   - component: {fileID: 74952395674241942}
-  - component: {fileID: 6297008017281753234}
   m_Layer: 5
-  m_Name: "\uF702UI Canvas (1)"
+  m_Name: Canvas-Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -508,19 +507,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   m_RaycastTriggerInteraction: 1
---- !u!114 &6297008017281753234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3645170613313847530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba6ff5e7c92519444bc2a7ca46558963, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Text: {fileID: 5751893171251094421}
 --- !u!1 &5562076333301391460
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,9 +520,8 @@ GameObject:
   - component: {fileID: 6645918854222163315}
   - component: {fileID: 6401765579453910471}
   - component: {fileID: 7371493761873770250}
-  - component: {fileID: 2401285869665367902}
   m_Layer: 5
-  m_Name: "\uF702UI Canvas"
+  m_Name: Canvas-Money
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -645,19 +630,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   m_RaycastTriggerInteraction: 1
---- !u!114 &2401285869665367902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5562076333301391460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba6ff5e7c92519444bc2a7ca46558963, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Text: {fileID: 318363926870675610}
 --- !u!1 &5617336448380349733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1017,9 +989,8 @@ GameObject:
   - component: {fileID: 1926554670874202039}
   - component: {fileID: 6180946334734920713}
   - component: {fileID: 8655818595367924645}
-  - component: {fileID: 361501665691462548}
   m_Layer: 5
-  m_Name: "\uF702UI Canvas (2)"
+  m_Name: Canvas-Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1128,16 +1099,3 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 55
   m_RaycastTriggerInteraction: 1
---- !u!114 &361501665691462548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8558614397558887493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba6ff5e7c92519444bc2a7ca46558963, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Text: {fileID: 6164775623283476108}

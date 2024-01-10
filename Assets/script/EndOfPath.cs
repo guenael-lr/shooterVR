@@ -17,14 +17,14 @@ public class EndOfPath : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(UnityEngine.Collider collision)
     {
         if (collision.transform.CompareTag("Enemy"))
         {
             Destroy(collision.gameObject);
             if (playerStats != null)
             {
-                playerStats.GetComponent<PlayerStats>().TakeDamage(1);
+                playerStats.TakeDamage(5);
             }
         }
     }

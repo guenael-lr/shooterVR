@@ -13,4 +13,9 @@ public class movingmob : MonoBehaviour
     {
         agent.SetDestination(target.position);
     }
+
+    public void setTarget(Transform target)
+    {
+        this.target = target;
+    }
 }

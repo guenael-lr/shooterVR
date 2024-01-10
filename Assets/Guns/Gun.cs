@@ -16,6 +16,7 @@ public class Gun : MonoBehaviour
     public GameObject SocketGrenade;
     private bool grenadeInSocket = false;
     private GameObject grenadeOfGun = null;
+    public PlayerStats playerStats;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,7 +66,10 @@ public class Gun : MonoBehaviour
         
         if (socketButtonValue)
         {
-            
+            if (playerStats.bombsAvailable <= 0)
+            {
+                return;
+            }
             if(grenadeOfGun == null) {
                 //get all elements in the collider of socketGrendae
                 Collider[] touchedItems = Physics.OverlapSphere(SocketGrenade.transform.position, SocketGrenade.GetComponent<SphereCollider>().bounds.size.x / 2);
@@ -86,6 +90,7 @@ public class Gun : MonoBehaviour
                     Grenade.transform.position = SocketGrenade.transform.position;
                     Grenade.transform.rotation = SocketGrenade.transform.rotation;
                     grenadeOfGun = Instantiate(Grenade);
+                    playerStats.bombsAvailable -= 1;
                 }
 
             }
@@ -108,5 +113,15 @@ public class Gun : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void OnExitSocket()
+    {
+        playerStats.bombsAvailable -= 1;
+    }
+
+    public void OnEnterSocket()
+    {
+        playerStats.bombsAvailable += 1;
     }
 }

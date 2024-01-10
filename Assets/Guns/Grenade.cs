@@ -30,6 +30,7 @@ public class Grenade : MonoBehaviour
     {
         Instantiate(explosionEffect, transform.position, explosionEffect.transform.rotation);
         Collider[] touchedItems = Physics.OverlapSphere(transform.position, explosionRadius.bounds.size.x / 2);
+        Debug.Log(touchedItems.Length);
         foreach (Collider item in touchedItems)
         {
             if (item.gameObject.tag == "Enemy")

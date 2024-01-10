@@ -5,6 +5,7 @@ using UnityEngine;
 public class MobLife : MonoBehaviour
 {
     public int life = 100;
+    public PlayerStats playerStats;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +25,10 @@ public class MobLife : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void OnDestroy()
+    {
+        playerStats.addMoney();
     }
 }
