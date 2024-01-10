@@ -23,6 +23,11 @@ The grenades can also be used on little towers placed at each corner of the map 
 ## Credits
 - All the assets used in this game are from [Kenney](https://kenney.nl/) and [Quaternius](https://quaternius.com/).
 - The sounds effects have been made by Guénaël Le Roux and Stanislas Vaissaire.
+- The musics are from Michal Mojzykiewicz and Frank Schroeter and are Licensed under [CC BY 4.0]( https://filmmusic.io/standard-license):
+
+
+
+
 
 ## Contributors
 - Guénaël Le Roux
