@@ -15,6 +15,7 @@ public class SpwaningMob : MonoBehaviour
     public Transform startPos;
     public Transform destination;
     public PlayerStats playerstats;
+    public GameObject ScoreUI;
     public void Spwaner()
     {
         GameObject monsterPrefab = monsterPrefabs[UnityEngine.Random.Range(0, monsterPrefabs.Count)];
@@ -53,5 +54,8 @@ public class SpwaningMob : MonoBehaviour
         }
 
         Debug.Log("Wave Done");
+        //set active scoreui true
+        ScoreUI.SetActive(true);
+        playerstats.displayStats();
     }
 }

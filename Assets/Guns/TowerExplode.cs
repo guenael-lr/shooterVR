@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class TowerExplode : MonoBehaviour
 {
     bool hasGrenade = false;
     public Collider explosionRadius;
     public Collider socketCollider;
+    public GameObject Socket;
+    private GameObject grenade;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,26 +35,23 @@ public class TowerExplode : MonoBehaviour
                 {
                     if (item.gameObject.tag == "Enemy")
                     {
-                        Destroy(item.gameObject);
+                        //hit the enemy
+                        item.gameObject.GetComponent<MobLife>().Hit(300);
                     }
                 }
-                // Get all grenade in socketCollider and destroy them
-                Collider[] grenades = Physics.OverlapSphere(transform.position, socketCollider.bounds.size.x / 2);
-                foreach (Collider grenade in grenades)
-                {
-                    if (grenade.gameObject.tag == "Grenade")
-                    {
-                        Destroy(grenade.gameObject);
-                    }
-                }
+                //Explode grenade
+                grenade.gameObject.GetComponent<Grenade>().Explode();
                 hasGrenade = false;
                 explosionRadius.enabled = false;
             }
         }
     }
 
-    public void OnItemPlaced()
+    public void OnItemPlaced(SelectEnterEventArgs args)
     {
+        //get item in the socket and use selectTarget
+        grenade = args.interactableObject.transform.gameObject;
+        Debug.Log(grenade.name);
         hasGrenade = true;
         explosionRadius.enabled = true;
         Debug.Log(explosionRadius.enabled);

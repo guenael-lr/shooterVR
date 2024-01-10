@@ -32,7 +32,7 @@ public class Grenade : MonoBehaviour
         Explode();
     }
 
-    void Explode()
+    public void Explode()
     {
         explosionAudio.Play();
         Instantiate(explosionEffect, transform.position, explosionEffect.transform.rotation);

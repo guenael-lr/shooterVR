@@ -104,6 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionRadius: {fileID: 7169716340578350257}
   socketCollider: {fileID: 2795823042533690265}
+  Socket: {fileID: 7437160968319347778}
 --- !u!135 &7169716340578350257
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -210,7 +211,7 @@ MonoBehaviour:
       - m_Target: {fileID: 3252580879912540241}
         m_TargetAssemblyTypeName: TowerExplode, Assembly-CSharp
         m_MethodName: OnItemPlaced
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

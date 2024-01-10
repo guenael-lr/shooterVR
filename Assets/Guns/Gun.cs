@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.DeviceSimulation;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Gun : MonoBehaviour
 {
@@ -75,60 +77,52 @@ public class Gun : MonoBehaviour
         if (socketButtonValue)
         {
             //activate the socket socketGrenade
-            SocketGrenade.SetActive(true);
-
 
             if (playerStats.bombsAvailable < 1)
             {
                 return;
             }
-            if(grenadeOfGun == null) {
-
-                Collider[] touchedItems = Physics.OverlapSphere(SocketGrenade.transform.position, SocketGrenade.GetComponent<SphereCollider>().bounds.size.x / 2);
-                grenadeInSocket = false;
-               
-                foreach (Collider item in touchedItems)
+            //check for item in collider of socket grenade
+            grenadeInSocket = false;
+            Collider[] touchedItems = Physics.OverlapSphere(transform.position, SocketGrenade.layer);
+            foreach (Collider item in touchedItems)
+            {
+                if (item.gameObject.tag == "Grenade")
                 {
-                    if (item.gameObject.tag == "Grenade")
-                    {
-                        grenadeInSocket = true;
-                    }
+                    grenadeInSocket = true;
                 }
+            }
 
-                if (!grenadeInSocket)
-                {
-                    reloadSound.Play();
-                    OnExitSocket();
-                    Grenade.transform.position = SocketGrenade.transform.position;
-                    Grenade.transform.rotation = SocketGrenade.transform.rotation;
-                    grenadeOfGun = Instantiate(Grenade);
-                }
 
+            if (grenadeOfGun == null && grenadeInSocket == false) {
+                //spawn grenade
+                grenadeOfGun = Instantiate(Grenade);
+                grenadeOfGun.transform.position = SocketGrenade.transform.position;
+                grenadeOfGun.transform.rotation = SocketGrenade.transform.rotation;
+                playerStats.bombsAvailable -= 1;
             }
 
         }
         else
         {
-            SocketGrenade.SetActive(false);
             if (grenadeOfGun)
             {
-                //check if grenadeofgun is in sphere collider of socketgrenade
-                if (!SocketGrenade.GetComponent<SphereCollider>().bounds.Contains(grenadeOfGun.transform.position))
-                {
-                    grenadeOfGun = null;
-                    
-                }
+                Destroy(grenadeOfGun);
+                grenadeOfGun = null;
+                playerStats.bombsAvailable += 1;
             }
         }
     }
 
-    public void OnExitSocket()
+    public void OnExitSocket(SelectExitEventArgs args)
     {
-        playerStats.bombsAvailable -= 1;
+        Debug.Log("exit");
+        grenadeOfGun = null;
     }
 
-    public void OnEnterSocket()
+    public void OnEnterSocket(SelectEnterEventArgs args)
     {
-        playerStats.bombsAvailable += 1;
+        Debug.Log("Onenter");
+        grenadeOfGun = args.interactableObject.transform.gameObject;
     }
 }
