@@ -55,7 +55,7 @@ public class PlayerStats : MonoBehaviour
         bombsAvailable += 1;
     }
 
-    public void addMoney(int amount = 10)
+    public void addMoney(int amount = 5)
     {
         money += amount;
         totalMoney += amount;
@@ -73,6 +73,9 @@ public class PlayerStats : MonoBehaviour
 
     public void displayStats()
     {
+        //calcul scsore with coefficient on different stats
+        score = (int)(totalMoney * 0.25 + mobsKilled * 2 + health * 1 - mobsPassed * 10);
+
         //Display stats
         scoresUI.GetNamedChild("MobsPassed").GetComponent<Text>().text = "Mobs passed : " + mobsPassed.ToString();
         scoresUI.GetNamedChild("MobsKilled").GetComponent<Text>().text = "Mobs killed : " + mobsKilled.ToString();

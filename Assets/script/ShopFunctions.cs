@@ -46,10 +46,10 @@ public class ShopFunctions : MonoBehaviour
 
     public void buyDamage()
     {
-        if (playerStats.money >= 10)
+        if (playerStats.money >= 50)
         {
             buy.Play();
-            playerStats.money -= 10;
+            playerStats.money -= 50;
             playerStats.addShootDamage();
         }
     }

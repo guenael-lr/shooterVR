@@ -46,10 +46,13 @@ public class SpwaningMob : MonoBehaviour
     IEnumerator SpawnCoroutine()
     {
         startTime = Time.time;
+        //get a random value between 1 and 5
+        int randomTime = UnityEngine.Random.Range(1, 5);
         
         while (Time.time < startTime + timer) 
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(randomTime);
+            randomTime = UnityEngine.Random.Range(1, 5);
             Spwaner();
         }
 
