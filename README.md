@@ -19,6 +19,8 @@ The grenades can also be used on little towers placed at each corner of the map 
 - `Use the right trigger to shoot`
 - `With the A button it is possible to spawn a grenade that you can grab with the left hand and throw on the ennemies`
 
+## Running the project
+The first scene is MainMenu, this is intended to be launched at first to get the best experience.
 
 ## Credits
 - All the assets used in this game are from [Kenney](https://kenney.nl/) and [Quaternius](https://quaternius.com/).
