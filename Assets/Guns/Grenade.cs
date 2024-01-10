@@ -39,4 +39,10 @@ public class Grenade : MonoBehaviour
         }
         Destroy(gameObject);
     }
+
+    public void PlacedOnTower()
+    {
+        //Deactivate spheric trigger
+        explosionRadius.enabled = false;
+    }
 }

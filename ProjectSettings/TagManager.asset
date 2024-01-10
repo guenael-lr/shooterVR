@@ -7,6 +7,7 @@ TagManager:
   - Grenade
   - SocketGun
   - SocketTower
+  - Enemy
   layers:
   - Default
   - TransparentFX

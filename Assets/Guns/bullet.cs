@@ -13,7 +13,7 @@ public class bullet : MonoBehaviour
     void Start()
     {
         //set velocity to y axis
-        velocity = 10.0f;
+        velocity = 150.0f;
     }
 
     // Update is called once per frame
@@ -37,6 +37,14 @@ public class bullet : MonoBehaviour
     //check if colliding with another object
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Collision");
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Hit");
+            //use Hit function from MobLife.cs
+            collision.gameObject.GetComponent<MobLife>().Hit(50);
+        }
         Destroy(gameObject);
     }
 
