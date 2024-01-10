@@ -41,9 +41,9 @@ public class PlayerStats : MonoBehaviour
         bombsAvailable += 1;
     }
 
-    public void addMoney()
+    public void addMoney(int amount = 10)
     {
-        money += 10;
+        money += amount;
     }
 
     public void addShootSpeed()

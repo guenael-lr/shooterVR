@@ -27,7 +27,7 @@ public class bullet : MonoBehaviour
 
 
         //if timer is greater than 5 seconds destroy bullet
-        if (timer > 2.5f)
+        if (timer > 1.0f)
         {
             Destroy(gameObject);
         }
@@ -44,8 +44,8 @@ public class bullet : MonoBehaviour
             Debug.Log("Hit");
             //use Hit function from MobLife.cs
             collision.gameObject.GetComponent<MobLife>().Hit(50);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 
 }

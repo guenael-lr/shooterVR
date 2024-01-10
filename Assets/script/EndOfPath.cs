@@ -25,6 +25,7 @@ public class EndOfPath : MonoBehaviour
             if (playerStats != null)
             {
                 playerStats.TakeDamage(5);
+                playerStats.addMoney(-10);
             }
         }
     }

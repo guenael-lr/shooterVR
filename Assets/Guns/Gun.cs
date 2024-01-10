@@ -66,16 +66,19 @@ public class Gun : MonoBehaviour
         
         if (socketButtonValue)
         {
-            if (playerStats.bombsAvailable <= 0)
+            //activate the socket socketGrenade
+            SocketGrenade.SetActive(true);
+
+
+            if (playerStats.bombsAvailable < 1)
             {
                 return;
             }
             if(grenadeOfGun == null) {
-                //get all elements in the collider of socketGrendae
+
                 Collider[] touchedItems = Physics.OverlapSphere(SocketGrenade.transform.position, SocketGrenade.GetComponent<SphereCollider>().bounds.size.x / 2);
-                //if it is not empty
                 grenadeInSocket = false;
-                 //check if grenade is in the collider
+               
                 foreach (Collider item in touchedItems)
                 {
                     if (item.gameObject.tag == "Grenade")
@@ -86,11 +89,10 @@ public class Gun : MonoBehaviour
 
                 if (!grenadeInSocket)
                 {
-                   //instantiate a grenade in the socket with its transformation
+                    OnExitSocket();
                     Grenade.transform.position = SocketGrenade.transform.position;
                     Grenade.transform.rotation = SocketGrenade.transform.rotation;
                     grenadeOfGun = Instantiate(Grenade);
-                    playerStats.bombsAvailable -= 1;
                 }
 
             }
@@ -98,15 +100,11 @@ public class Gun : MonoBehaviour
         }
         else
         {
-            if(grenadeOfGun)
+            SocketGrenade.SetActive(false);
+            if (grenadeOfGun)
             {
                 //check if grenadeofgun is in sphere collider of socketgrenade
-                if (SocketGrenade.GetComponent<SphereCollider>().bounds.Contains(grenadeOfGun.transform.position))
-                {
-                    DestroyImmediate(grenadeOfGun, true);
-
-                }
-                else
+                if (!SocketGrenade.GetComponent<SphereCollider>().bounds.Contains(grenadeOfGun.transform.position))
                 {
                     grenadeOfGun = null;
                     

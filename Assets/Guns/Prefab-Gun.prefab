@@ -289,3 +289,4 @@ MonoBehaviour:
   RefBulletPos: {fileID: 4194490078952515129}
   Grenade: {fileID: 6177757417669284267, guid: 90e863c36e966c74ab7497f46a56539c, type: 3}
   SocketGrenade: {fileID: 6228990765938100805}
+  playerStats: {fileID: 0}
