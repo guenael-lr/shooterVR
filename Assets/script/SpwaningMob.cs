@@ -14,6 +14,7 @@ public class SpwaningMob : MonoBehaviour
     float startTime;
     public Transform startPos;
     public Transform destination;
+    public PlayerStats playerstats;
     public void Spwaner()
     {
         GameObject monsterPrefab = monsterPrefabs[UnityEngine.Random.Range(0, monsterPrefabs.Count)];
@@ -22,6 +23,11 @@ public class SpwaningMob : MonoBehaviour
         if (spawnedObject.GetComponent<movingmob>()) 
         {
             spawnedObject.GetComponent<movingmob>().SetDestinationFromSpawner(destination);
+        }
+
+        if (spawnedObject.GetComponent<MobLife>())
+        {
+            spawnedObject.GetComponent<MobLife>().playerStats = playerstats;
         }
 
         /*if (spawnedObject.GetComponent<MovingMob2>())

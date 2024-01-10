@@ -10,10 +10,12 @@ public class bullet : MonoBehaviour
 
     private float velocity;
 
+    public PlayerStats playerStats;
+
     void Start()
     {
         //set velocity to y axis
-        velocity = 150.0f;
+        velocity = 175.0f;
     }
 
     // Update is called once per frame
@@ -35,7 +37,7 @@ public class bullet : MonoBehaviour
     }
 
     //check if colliding with another object
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         Debug.Log("Collision");
         Debug.Log(collision.gameObject.tag);
@@ -43,7 +45,8 @@ public class bullet : MonoBehaviour
         {
             Debug.Log("Hit");
             //use Hit function from MobLife.cs
-            collision.gameObject.GetComponent<MobLife>().Hit(50);
+            int damage = (int)(20 * 0.75 * playerStats.shootDamage);
+            collision.gameObject.GetComponent<MobLife>().Hit(damage);
             Destroy(gameObject);
         }
     }

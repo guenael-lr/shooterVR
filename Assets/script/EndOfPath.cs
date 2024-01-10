@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EndOfPath : MonoBehaviour
 {
-    public PlayerStats playerStats;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,12 +20,7 @@ public class EndOfPath : MonoBehaviour
     {
         if (collision.transform.CompareTag("Enemy"))
         {
-            Destroy(collision.gameObject);
-            if (playerStats != null)
-            {
-                playerStats.TakeDamage(5);
-                playerStats.addMoney(-10);
-            }
+            collision.gameObject.GetComponent<MobLife>().killedByPass();
         }
     }
 }

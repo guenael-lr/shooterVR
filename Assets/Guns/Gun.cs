@@ -17,6 +17,11 @@ public class Gun : MonoBehaviour
     private bool grenadeInSocket = false;
     private GameObject grenadeOfGun = null;
     public PlayerStats playerStats;
+    public AudioSource fireSound;
+    public AudioSource reloadSound;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +44,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        shootSpeed = 0.6f - (playerStats.shootSpeed / 5);
         //fire every shootspeed
         shootTime += Time.deltaTime;
        
@@ -57,6 +63,8 @@ public class Gun : MonoBehaviour
                 //set position to the same far from the gun + 1.f on y axis
 
                 Instantiate(bullet);
+                fireSound.Play();
+                bullet.GetComponent<bullet>().playerStats = playerStats;
                 shootTime = 0.0f;
             }
 
@@ -89,6 +97,7 @@ public class Gun : MonoBehaviour
 
                 if (!grenadeInSocket)
                 {
+                    reloadSound.Play();
                     OnExitSocket();
                     Grenade.transform.position = SocketGrenade.transform.position;
                     Grenade.transform.rotation = SocketGrenade.transform.rotation;

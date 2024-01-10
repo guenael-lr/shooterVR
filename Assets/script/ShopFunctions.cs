@@ -5,6 +5,8 @@ using UnityEngine;
 public class ShopFunctions : MonoBehaviour
 {
     public PlayerStats playerStats;
+    public int numberOfSpeedBought = 0;
+    public AudioSource buy;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,7 @@ public class ShopFunctions : MonoBehaviour
     {
         if (playerStats.money >= 10)
         {
+            buy.Play();
             playerStats.money -= 10;
             playerStats.addBomb();
         }
@@ -28,10 +31,16 @@ public class ShopFunctions : MonoBehaviour
 
     public void buySpeed()
     {
-        if (playerStats.money >= 10)
+        if (numberOfSpeedBought >= 4)
         {
-            playerStats.money -= 10;
+            return;
+        }
+        if (playerStats.money >= 100)
+        {
+            buy.Play();
+            playerStats.money -= 100;
             playerStats.addShootSpeed();
+            numberOfSpeedBought += 1;
         }
     }
 
@@ -39,6 +48,7 @@ public class ShopFunctions : MonoBehaviour
     {
         if (playerStats.money >= 10)
         {
+            buy.Play();
             playerStats.money -= 10;
             playerStats.addShootDamage();
         }
