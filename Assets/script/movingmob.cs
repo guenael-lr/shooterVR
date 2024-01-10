@@ -7,15 +7,15 @@ public class movingmob : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] NavMeshAgent agent;
-    [SerializeField] Transform target;
+    Transform target;
     // Update is called once per frame
     void Update()
     {
         agent.SetDestination(target.position);
     }
 
-    public void setTarget(Transform target)
+    public void SetDestinationFromSpawner(Transform destination)
     {
-        this.target = target;
+        target = destination;
     }
 }
